@@ -1,0 +1,20 @@
+---
+title: Orc Figurine
+links:
+  - http://genesisquests.pbworks.com/w/page/52001987/Sparkle%20-%20Orc%20Figurine
+hints: |
+ requires awreness and light source level 2
+difficulty: 0
+deadly: false
+start: Church in Sparkle
+solve:
+ - description: Orc
+ #comma separated or array form
+   actions: s, w, n, 7w, n, w, n, e, ask orc help
+ - description: Figurine
+   actions: w, 2n, w, 2n, enter hole, light lamp, search here, get figurine
+ - description: Orc
+   actions: enter hole, 2s, e, 2s, e, give figurine to orc
+ - description: Back to start
+   actions: w, s, e, s, 7e, s, e, n
+...
