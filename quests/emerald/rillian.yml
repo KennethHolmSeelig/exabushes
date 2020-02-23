@@ -1,0 +1,45 @@
+Boat from Emerald Island)
+ <light, any gem – but! keep in mind that it will define your torque
+  description, so do not use cheap golden pyrites, etc ;P >
+
+ <*> (QuestMaster) s, 2e, se, 2e, 3se, 3s, se, e, introduce me
+ <*> (Disc) ask satherel help, ask satherel missing, ask satherel 
+     investigation, ask satherel disrupted, ask satherel help (2 or more 
+     times - till you receive non-vanishing disc from him), ask satherel 
+     quake, ask satherel del rimmon
+ <*> (Boat to North Shore) w, nw, 2n, 3nw, 2w, nw, 2w, 2n
+ 
+ 
+s, s, 2e, se, 2e, se, 3s, se, e, introduce me
+ask satherel help
+ask satherel apprentice
+ask satherel fate
+ask satherel Rillian
+ask satherel plans
+ask satherel disrupted
+ask satherel help
+<you get a stone disc>
+x stone disc
+x symbol
+x rune
+ask satherel del rimmon
+ask satherel quake
+w, nw, 2n, nw, 2w, nw, 2w, 2n
+sail
+
+2n, ne, nw, e, nw, e, 3n, w, 2nw, 3n, 3w, n, ne
+
+
+2n, ne, x tree, x trunk, x roots, x crack, light lamp, x space, x hole, enter hole
+n, ne, x corpse, get journal from corpse, x journal, read page 1
+#log it
+read page 2
+read page 3
+read page 4
+incant iffinde
+#wait
+put journal in corpse
+s, sw, enter hole, climb tree, sw, s, s, climb down chimney
+sw, 4s, 3se, 2e, se, e, e, ne, 3s, w, se, w, se, sw, 2s, e, w,
+#sail back
+s, s, 2e, se, 2e, se, 3s, se, e, ask elf reward
