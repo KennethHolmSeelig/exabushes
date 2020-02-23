@@ -33,3 +33,4 @@ function quests() {
 	  }
 	}
 }
+quests();
