@@ -14,7 +14,7 @@ execute the alias in the tower of realms this will record all quests in all real
 
 in console you will see quests to finish.
 A javascript object has been created that can be accessed. In browser console do:
-```js
+```
 exabushes.quests('sparkle')
 >
 Quests you need to finish in Sparkle:
@@ -43,7 +43,7 @@ solve:
 ```
 
 To send an action sequence to the client, do the following:
-```js
+```
 exabushes.doAction('sparkle', 0)
 >
 Executing action 'Orc' for quest 'Orc Figurine'
