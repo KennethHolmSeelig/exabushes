@@ -34,3 +34,4 @@ function quests() {
 	}
 }
 quests();
+console.log('loaded exabushes');
