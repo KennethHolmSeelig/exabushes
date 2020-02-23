@@ -13,7 +13,7 @@ document.head.appendChild(script);
 execute the alias in the tower of realms this will record all quests in all realms that you are missing
 
 in console you will see quests to finish.
-A javascript object has been crearted that can be accessed. In browser console do:
+A javascript object has been created that can be accessed. In browser console do:
 ```js
 exabushes.quests('sparkle')
 >
@@ -49,3 +49,6 @@ exabushes.doAction('sparkle', 0)
 Executing action 'Orc' for quest 'Orc Figurine'
 Actions sent: s, w, n, 7w, n, w, n, e, ask orc help
 ```
+
+## TODO:
+ * Save state to a cookie in case of browse exit.
