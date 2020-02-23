@@ -1,0 +1,37 @@
+---
+title: Enchanter Weapon
+links:
+  - http://genesisquests.pbworks.com/w/page/52002186/Sparkle%20-%20Enchanter%20Weapon
+hints: |
+ be read yto get the key from the corpse or a rat will get it and you need to kill a second runt
+ you might need to buy an amulet of diminuition
+ it costs 52 platinum and you have to pay in plat coins
+difficulty: 1
+deadly: false
+start: Enchanter Shop Sparkle
+
+#UPDATE from here
+solve:
+ - description: Get Quest
+ #comma separated or array form
+   actions: ask Karkadelt help, ask Karkadelt quest
+ - description: go to frotress
+   actions: 2s, 12w, n, 2w, 5n
+ - description: go to weapon storage
+   actions: wear amulet, d, s, w, s, s, kill tough runt, get key from corpse
+ - if: rat runs away with key
+   description: get other key
+   actions: n, n, e, e, s, kill tough runt, get key from corpse, n, w, w, s, s
+ - description: Search for things
+   actions: unlock door with key, open door, w,
+search shelves
+search stands
+search bins
+search racks
+search barrels
+search cabinets
+
+ - description: Back to start
+   actions: e, n, n, e, n, u
+remove amulet
+5s, 2e, s, 12e, 2n, show dagger to Karkadelt
