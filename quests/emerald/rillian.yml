@@ -19,8 +19,8 @@ sail
 
 2n, ne, nw, e, nw, e, 3n, w, 2nw, 3n, 3w, n, ne
 
-
-2n, ne, x tree, x trunk, x roots, x crack, light lamp, x space, x hole, enter hole
+climb up chimney
+2n, ne, x tree, x trunk, x roots, x crack, light lamp, x space, x crack, enter crack, u
 n, ne, x corpse, get journal from corpse, x journal, read page 1
 #log it
 read page 2
@@ -30,6 +30,6 @@ incant iffinde
 #wait
 put journal in corpse
 s, sw, enter hole, climb tree, sw, s, s, climb down chimney
-sw, 4s, 3se, 2e, se, e, e, ne, 3s, w, se, w, se, sw, 2s, e, w,
+sw, 4s, 3se, 2e, se, e, e, ne, 3s, w, se, w, se, sw, 2s,
 #sail back
 s, s, 2e, se, 2e, se, 3s, se, e, ask elf reward

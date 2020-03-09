@@ -2,3 +2,15 @@ at ANNU armsdealer
 x shelves, x smaller case, x antique, ask annu sword
 4w, 2n
 #sail with ship
+
+
+2n, ne, nw, e, nw, e, 3n, w,sw, 3nw, 4n, 4w, s, sw, s
+x supplies
+x shelves
+x barrels
+x cask
+open cask
+get all from cask
+n, ne, n, 4e, 4s, 3se, ne, e, 3s, w, se, w, se, sw, 2s,
+#sail back
+s, s, 2e, se, 2e, se, 3s, se, e, 
