@@ -1,12 +1,17 @@
 const Discord = require("discord.js");
-console.log(Discord)
+var Promise = require('bluebird');
+var bunyan = require('bunyan');
+var express = require('express');
+var _ = require('lodash');
+var fs = require('fs');
+
 const client = new Discord.Client();
 client.on("ready", () => {
-   // console.log(client.users.get('MightyKhan#6149').send("hello from the bot"));
+//   console.log(client.users.get('MightyKhan#6149').send("hello from the bot"));
 });
 
-//DasBot
-client.login("NjgzMzI2NDM1MTU0MTk4NTU1.Xlp8yQ.qw7oZ4QAbPsNmTkkNd0h2O2hHBU");
+//ExaBushes
+client.login("MzY2OTc3OTIwMzM5NjczMDkw.XmeqHw.fsv0r4cH3b3O70vVg6kLP1E0Br8");
 var config = {
     prefix: "do"
 };
@@ -40,7 +45,7 @@ client.on("message", async message => {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Progress report?");
-    m.edit('Gretchen has made "a tiny amount of" progress\n' + 'Gretchen has made "fantastic" quest progress');
+    m.edit('no porgs recorded');
   } else if(command === "blowjob") {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
@@ -68,6 +73,8 @@ m.edit(str);
   } else if (command == 'aulist') {
     //await message.channel.send("81256  A long coral necklace                   -           20 (150)    2 d 23 h\n"+
 //"81255  A pure snow-white sword                 -           20 (-)      2 d 23 h");
+  } else if (command == 'herbs') {
+    await message.channel.send(herbs);
   } else if (command == 'who') {
 let str = "There are 47 players in the game, of which 4 fit your selection.\n" +
 "-wizards-  Cotillion  Varian  Ardent     Gorboth   "
@@ -75,4 +82,19 @@ let str = "There are 47 players in the game, of which 4 fit your selection.\n" +
   } else {
     const m = await message.channel.send("Shut up and do it yourself!");
   }
-})
+});
+
+var app = express();
+
+module.exports = app.listen(8080, function() {
+});
+
+let herbs = fs.readFileSync('./herbs');
+app.post('/herbs', express.json(), function (request, response) {
+  herbs = request.body;
+  response.send('ok');
+});
+
+app.get('/herbs', function (request, response) {
+  response.send(herbs);
+});
