@@ -14,9 +14,8 @@ client.on("ready", () => {
 //Apps clientid: 686950452650049539
 //https://discordapp.com/oauth2/authorize?&client_id=686950452650049539&scope=bot&permissions=8
 
-var token = "Njg2OTUwNDUyNjUwMDQ5NTM5.Xme8uA.HZShoo7ytVJT2v36ppKDsfJKnhE";
 //ExaBushes
-client.login(token);
+client.login(process.argv[2]);
 var config = {
     prefix: "do"
 };
