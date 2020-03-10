@@ -91,14 +91,16 @@ let str = "There are 47 players in the game, of which 4 fit your selection.\n" +
 
 var app = express();
 
-module.exports = app.listen(8080, function() {
-});
-
 let herbs = "Full: http://23.236.55.114:8080/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
 app.post('/herbs', express.json(), function (request, response) {
   herbs = request.body;
 });
 
 app.get('/herbs', function (request, response) {
+  console.log('get herbs')
   response.text(herbs);
 });
+
+module.exports = app.listen(8080, function() {
+});
+
