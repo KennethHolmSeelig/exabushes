@@ -6,8 +6,6 @@ var _ = require('lodash');
 var fs = require('fs');
 
 const client = new Discord.Client({
-  token: 'Njg2OTUwNDUyNjUwMDQ5NTM5.Xme4xg.PpfKGnD_iJOwoVwnvzwb3Yhp0yg',
-  autorun: true
 });
 client.on("ready", () => {
    console.log('ready');
@@ -16,8 +14,9 @@ client.on("ready", () => {
 //Apps clientid: 686950452650049539
 //https://discordapp.com/oauth2/authorize?&client_id=686950452650049539&scope=bot&permissions=8
 
+var token = "Njg2OTUwNDUyNjUwMDQ5NTM5.Xme8uA.HZShoo7ytVJT2v36ppKDsfJKnhE";
 //ExaBushes
-client.login("Njg2OTUwNDUyNjUwMDQ5NTM5.Xme4xg.PpfKGnD_iJOwoVwnvzwb3Yhp0yg");
+client.login(token);
 var config = {
     prefix: "do"
 };
@@ -80,6 +79,7 @@ m.edit(str);
     //await message.channel.send("81256  A long coral necklace                   -           20 (150)    2 d 23 h\n"+
 //"81255  A pure snow-white sword                 -           20 (-)      2 d 23 h");
   } else if (command == 'herbs') {
+    
     await message.channel.send(herbs.substring(0, 2000));
   } else if (command == 'who') {
 let str = "There are 47 players in the game, of which 4 fit your selection.\n" +
@@ -95,7 +95,7 @@ var app = express();
 module.exports = app.listen(8080, function() {
 });
 
-let herbs = "Updated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
+let herbs = "Full: http://23.236.55.114:8080/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
 app.post('/herbs', express.json(), function (request, response) {
   herbs = request.body;
 });
