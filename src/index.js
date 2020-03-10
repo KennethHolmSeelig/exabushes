@@ -5,20 +5,7 @@ var express = require('express');
 var _ = require('lodash');
 var fs = require('fs');
 
-
-
 var app = express();
-
-let herbs = "Full: http://23.236.55.114:8080/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
-app.post('/herbs', express.json(), function (request, response) {
-  herbs = request.body;
-});
-
-app.get('/herbs', function (request, response) {
-  console.log('get herbs')
-  response.text(herbs);
-});
-
 module.exports = app.listen(8080, function() {
   const client = new Discord.Client({
   });
@@ -103,5 +90,16 @@ module.exports = app.listen(8080, function() {
       const m = await message.channel.send("Shut up and do it yourself!");
     }
   });
+});
+
+
+let herbs = "Full: http://23.236.55.114:8080/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
+app.post('/herbs', express.json(), function (request, response) {
+  herbs = request.body;
+});
+
+app.get('/herbs', function (request, response) {
+  console.log('get herbs')
+  response.text(herbs);
 });
 
