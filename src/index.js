@@ -7,7 +7,7 @@ var fs = require('fs');
 
 var app = express();
 module.exports = app.listen(8080, function() {
-  const client = new Discord.Client({
+  /*const client = new Discord.Client({
   });
   client.on("ready", () => {
      console.log('ready');
@@ -89,7 +89,7 @@ module.exports = app.listen(8080, function() {
     } else {
       const m = await message.channel.send("Shut up and do it yourself!");
     }
-  });
+  });*/
 });
 
 
