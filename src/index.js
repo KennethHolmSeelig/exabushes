@@ -18,7 +18,7 @@ module.exports = app.listen(80, function() {
   
   //ExaBushes
   var DISCORD_TOKEN = process.env['DISCORD_TOKEN'];
-  console('token used: ', DISCORD_TOKEN);
+  console.log('token used: ', DISCORD_TOKEN);
   client.login(DISCORD_TOKEN);
   var config = {
       prefix: "do"
