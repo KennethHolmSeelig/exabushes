@@ -5,13 +5,19 @@ var express = require('express');
 var _ = require('lodash');
 var fs = require('fs');
 
-const client = new Discord.Client();
-client.on("ready", () => {
-//   console.log(client.users.get('MightyKhan#6149').send("hello from the bot"));
+const client = new Discord.Client({
+  token: 'Njg2OTUwNDUyNjUwMDQ5NTM5.Xme4xg.PpfKGnD_iJOwoVwnvzwb3Yhp0yg',
+  autorun: true
 });
+client.on("ready", () => {
+   console.log('ready');
+});
+//Bots token: EFIm1xTTkRp313PBo585dR-x54KO4kt9
+//Apps clientid: 686950452650049539
+//https://discordapp.com/oauth2/authorize?&client_id=686950452650049539&scope=bot&permissions=8
 
 //ExaBushes
-client.login("MzY2OTc3OTIwMzM5NjczMDkw.XmeqHw.fsv0r4cH3b3O70vVg6kLP1E0Br8");
+client.login("Njg2OTUwNDUyNjUwMDQ5NTM5.Xme4xg.PpfKGnD_iJOwoVwnvzwb3Yhp0yg");
 var config = {
     prefix: "do"
 };
@@ -74,7 +80,7 @@ m.edit(str);
     //await message.channel.send("81256  A long coral necklace                   -           20 (150)    2 d 23 h\n"+
 //"81255  A pure snow-white sword                 -           20 (-)      2 d 23 h");
   } else if (command == 'herbs') {
-    await message.channel.send(herbs);
+    await message.channel.send(herbs.substring(0, 2000));
   } else if (command == 'who') {
 let str = "There are 47 players in the game, of which 4 fit your selection.\n" +
 "-wizards-  Cotillion  Varian  Ardent     Gorboth   "
@@ -89,12 +95,11 @@ var app = express();
 module.exports = app.listen(8080, function() {
 });
 
-let herbs = fs.readFileSync('./herbs');
+let herbs = "Updated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
 app.post('/herbs', express.json(), function (request, response) {
   herbs = request.body;
-  response.send('ok');
 });
 
 app.get('/herbs', function (request, response) {
-  response.send(herbs);
+  response.text(herbs);
 });
