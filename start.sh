@@ -1,2 +1,2 @@
 git pull
-sudo node src/index.js Njg2OTUwNDUyNjUwMDQ5NTM5.XmfByA.wIjP2NehPQrh5ow4BHFLuht5x5g
+sudo node src/index.js Njg2OTUwNDUyNjUwMDQ5NTM5.XmfD8Q.77EaT1idLpE0yojOgVOpMIJf7EA
