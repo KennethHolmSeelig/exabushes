@@ -100,6 +100,7 @@ app.post('/herbs', express.json(), function (request, response) {
 
 app.get('/herbs', function (request, response) {
   console.log('get herbs')
+  response.setHeader('Content-Type', 'text/plain; charset=UTF-8');
   response.send(herbs);
 });
 
