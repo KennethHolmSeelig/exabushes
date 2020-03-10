@@ -17,7 +17,7 @@ module.exports = app.listen(80, function() {
   //https://discordapp.com/oauth2/authorize?&client_id=686950452650049539&scope=bot&permissions=8
   
   //ExaBushes
-  client.login(process.argv[2]);
+  client.login(process.env['DISCORD_TOKEN']);
   var config = {
       prefix: "do"
   };
