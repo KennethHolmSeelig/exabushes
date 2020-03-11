@@ -99,6 +99,7 @@ let herbs = "Full: http://23.236.55.114/herbs\nUpdated.: " + (new Date()).toISOS
 app.post('/herbs', function (request, response) {
   console.log(request.body);
   herbs = request.body;
+  response.send('updated');
 });
 
 app.get('/herbs', function (request, response) {
