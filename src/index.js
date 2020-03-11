@@ -12,7 +12,6 @@ module.exports = app.listen(80, function() {
   client.on("ready", () => {
      console.log('ready');
   });
-  //Bots token: EFIm1xTTkRp313PBo585dR-x54KO4kt9
   //Apps clientid: 686950452650049539
   //https://discordapp.com/oauth2/authorize?&client_id=686950452650049539&scope=bot&permissions=8
   

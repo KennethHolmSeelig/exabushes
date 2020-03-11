@@ -1,2 +1,7 @@
 git pull
-sudo node src/index.js Njg2OTUwNDUyNjUwMDQ5NTM5.XmfD8Q.77EaT1idLpE0yojOgVOpMIJf7EA
+if [ -z "$1" ]
+  then
+    echo "Supply discord bot token, maybe $DISCORD_TOKEN ?"
+else
+  sudo node src/index.js $1
+fi
