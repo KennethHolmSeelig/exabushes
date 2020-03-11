@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const Discord = require("discord.js");
 var Promise = require('bluebird');
 var bunyan = require('bunyan');
