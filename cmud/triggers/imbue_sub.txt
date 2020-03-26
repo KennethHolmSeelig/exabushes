@@ -1,0 +1,70 @@
+#CLASS {ImbueSub}
+#TRIGGER {Purple gleam} {#sub {PARRY};#cap info}
+#TRIGGER {Gleam of mithril} {#sub {INC DURA};#cap info}
+#TRIGGER {smell of vanilla} {#sub {DIS};#cap info}
+#TRIGGER {smell of sage} {#sub {WIS};#cap info}
+#TRIGGER {smell of lavender} {#sub {INT};#cap info}
+#TRIGGER {smell of alcohol} {#sub {CON};#cap info}
+#TRIGGER {smel of cinnamon} {#sub {DEX};#cap info}
+#TRIGGER {smell of musk} {#sub {STR};#cap info}
+#TRIGGER {of a monkey} {#sub {UNARMED};#cap info}
+#TRIGGER {of a lion} {#sub {SWORD};#cap info}
+#TRIGGER {Aura of a spider} {#sub {KNIFE};#cap info}
+#TRIGGER {Aura of a badger} {#sub {AXE};#cap info}
+#TRIGGER {Aura of a stallion} {#sub {POLEARM};#cap info}
+#TRIGGER {Aura of a boar} {#sub {CLUB};#cap info}
+#TRIGGER {Aura of well-being} {#sub {AC};#cap info}
+#TRIGGER {Aura of crimson energy} {#sub {SPELLCRAFT};#cap info}
+#TRIGGER {Aura of light} {#sub {LIGHT};#cap info}
+#TRIGGER {Aura of darkness} {#sub {DARK};#cap info}
+#TRIGGER {Aura of viciousness} {#sub {TO HIT};#cap info}
+#TRIGGER {Silvery aura} {#sub {TWO HANDED};#cap info}
+#TRIGGER {Aura of malevolence} {#sub {DAMAGE};#cap info}
+#TRIGGER {acid sheen} {#sub {ACID DAM};#cap info}
+#TRIGGER {(Feeling of unease)}{#sub {%1 [Resist life magic]};#cap info}
+#TRIGGER {Feeling of calm} {#sub {RES TO FIRE MAG};#cap info}
+#TRIGGER {Feeling of security} {#sub {HEAL USER};#cap info}
+#TRIGGER {Dull feeling} {#sub {RES TO MAG};#cap info}
+#TRIGGER {Feeling of nausea} {#sub {RES TO DEATH MAG};#cap info}
+#TRIGGER {Feeling of drowsiness} {#sub {RES TO EARTH MAG};#cap info}
+#TRIGGER {azure tint} {#sub {AIR MAG SKILL};#cap info}
+#TRIGGER {brown tint} {#sub {EARTH MAG SKILL};#cap info}
+#TRIGGER {grey tint} {#sub {DEATH MAG SKILL};#cap info}
+#TRIGGER {opalesque tint} {#sub {WATER MAG SKILL};#cap info}
+#TRIGGER {rose tint} {#sub {FIRE MAG SKILL};#cap info}
+#TRIGGER {Granite formations} {#sub {ANTI OGRE};#cap info}
+#TRIGGER {(Topaz formations)} {#sub {%1 [Troll damage]};#cap info}
+#TRIGGER {Diamond formations} {#sub {ANTI DRAGON};#cap info}
+#TRIGGER {Bone formations} {#sub {ANTI UNDEAD};#cap info}
+#TRIGGER {Sapphire formations} {#sub {ANTI HUMAN};#cap info}
+#TRIGGER {Ivory formations} {#sub {ANTI MINOTAUR};#cap info}
+#TRIGGER {Quartz formations} {#sub {ANTI HALFLING};#cap info}
+#TRIGGER {Mithril formations} {#sub {ANTI DWARF};#cap info}
+#TRIGGER {Peridot formations} {#sub {ANTI GNOME};#cap info}
+#TRIGGER {Onyx formations} {#sub {ANTI Goblin};#cap info}
+#TRIGGER {Beryl formations} {#sub {ANTI ELF};#cap info}
+#TRIGGER {clicking sound} {#sub {BLINDFIGHTING};#cap info}
+#TRIGGER {purring sound} {#sub {SNEAK - HIDE};#cap info}
+#TRIGGER {hissing sound} {#sub {WATER DMG};#cap info}
+#TRIGGER {ringing in your ears} {#sub {AIRMAG RESISTANCE};#cap info}
+#TRIGGER {whine} {#sub {HASTE};#cap info}
+#TRIGGER {green moisture} {#sub {POISON};#cap info}
+#TRIGGER {clusters of frost} {#sub {COLD DMG};#cap info}
+#TRIGGER {odor of decay} {#sub {DEATH DMG};#cap info}
+#TRIGGER {swirling bands of yellow energy} {#sub {DEFENCE};#cap info}
+#TRIGGER {(orange glow)} {#sub {%1 [Awareness skill]};#cap info}
+#TRIGGER {electricty play} {#sub {ELECTRICITY DMG};#cap info}
+#TRIGGER {disturbance in the air surrounding} {#sub {AIR-BOLT DMG};#cap info}
+#TRIGGER {white flames} {#sub {ELEMENTAL DMG};#cap info}
+#TRIGGER {fluctuation in the weapons color} {#sub {EARTH DMG};#cap info}
+#TRIGGER {Drone} {#sub {SLOW};#cap info}
+#TRIGGER {tickle in} {#sub {RES TO WATER MAG};#cap info}
+#TRIGGER {hair-raising} {#sub {RES TO ELECTRICITY DMG};#cap info}
+#TRIGGER {urge to sneeze} {#sub {ANTI POISON};#cap info}
+#TRIGGER {goosebumps} {#sub {RES TO COLD};#cap info}
+#TRIGGER {itching sensation} {#sub {RES TO ACID DMG};#cap info;#untrigger stalk}
+#TRIGGER {blue tint} {#sub {LIFE MAGIC SKILL};#cap info}
+#TRIGGER {sparkle bewitches} {#sub {DARKVISION};#cap info}
+#TRIGGER {smell of cinnamon} {#sub {DEX};#cap info}
+#TRIGGER {fluctuation in the} {#sub {EARTH DMG};#cap info}
+#CLASS 0

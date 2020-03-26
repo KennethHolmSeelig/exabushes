@@ -6,9 +6,10 @@ var express = require('express');
 var _ = require('lodash');
 var fs = require('fs');
 
+var client;
 var app = express();
 module.exports = app.listen(80, function() {
-  const client = new Discord.Client({
+  client = new Discord.Client({
   });
   client.on("ready", () => {
      console.log('ready');
@@ -53,7 +54,7 @@ module.exports = app.listen(80, function() {
       // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
       // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
       const m = await message.channel.send("Progress report?");
-      m.edit('no porgs recorded');
+      m.edit('no progs recorded');
     } else if(command === "blowjob") {
       // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
       // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
@@ -97,7 +98,7 @@ module.exports = app.listen(80, function() {
 
 let herbs = "Full: http://23.236.55.114/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
 app.post('/herbs', function (request, response) {
-  console.log(request.body);
+  console.log('the body: ', request.body);
   herbs = request.body;
   response.send('updated');
 });
@@ -108,3 +109,9 @@ app.get('/herbs', function (request, response) {
   response.send(herbs);
 });
 
+app.post('/echo', function (request, response) {
+  //herb bot channel
+  const channel = client.channels.cache.get('681130739084951723');
+  channel.send(request.body);
+  response.send('line posted');
+});
