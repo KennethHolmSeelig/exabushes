@@ -110,7 +110,7 @@ app.get('/herbs', function (request, response) {
 
 app.post('/echo', express.text(), function (request, response) {
   //herb bot channel
-  const channel = client.channels.get('681130739084951723');
+  const channel = client.channels.get('681130739089145891');
   channel.send(request.body);
   response.send('line posted');
 });
