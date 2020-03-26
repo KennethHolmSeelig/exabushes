@@ -97,7 +97,7 @@ module.exports = app.listen(80, function() {
 
 
 let herbs = "Full: http://23.236.55.114/herbs\nUpdated.: " + (new Date()).toISOString() + "\n" + fs.readFileSync('./herbs').toString();
-app.post('/herbs', function (request, response) {
+app.post('/herbs', express.text(), function (request, response) {
   console.log('the body: ', request.body);
   herbs = request.body;
   response.send('updated');
