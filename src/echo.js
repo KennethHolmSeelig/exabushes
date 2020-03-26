@@ -1,8 +1,10 @@
-const Tail = require('tail-file');
+const Tail = require('nodejs-tail');
 const http = require('http');
 
+const tail = new Tail(process.argv[2]);
+console.log('tailing:', process.argv[2]);
 
-const mytail = new Tail(process.argv[1], line => {
+tail.on('line', (line) => {
   const data = line;
   
   const options = {
@@ -30,4 +32,11 @@ const mytail = new Tail(process.argv[1], line => {
   
   req.write(data);
   req.end();
+  process.stdout.write(line);
 });
+ 
+tail.on('close', () => {
+  console.log('watching stopped');
+});
+ 
+tail.watch();
