@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<cmud>
+  <class name="Quests">
+    <alias name="towerorbs" autoappend="true">
+      <value>#log questsdone.txt new
+questmissing=0
+#t+ questmissingcount
+#t+ hintcapture1
+#t+ hintcapture2
+quests
+#alarm (+1) {
+  u
+  ansalon
+  quests
+  }
+#alarm (+3) {
+  tower
+  gondor
+  quests
+  }
+#alarm (+5) {
+  tower
+  krynn
+  quests
+  }
+#alarm (+7) {
+  tower
+  terel
+  quests
+  }
+#alarm (+9) {
+  tower
+  u
+  shire
+  quests
+  }
+#alarm (+11) {
+  tower
+  avenir
+  quests
+  }
+#alarm (+13) {
+  darkness
+  earthsea
+  quests
+  }
+#alarm (+15) {
+  tower
+  u
+  raumdor
+  quests
+  }
+#alarm (+17) {
+  tower
+  kalad
+  quests
+  }
+#alarm (+19) {
+  fog
+  emerald
+  quests
+  }
+#alarm (+21) {
+  tower
+  cirath
+  quests
+  }
+#alarm (+23) {
+  tower
+  u
+  khalakhor
+  quests
+  }
+#alarm (+25) {
+  tower
+  calia
+  quests
+  }
+#alarm (+27) {
+  tower
+  faerun
+  quests
+  }
+#alarm (+29) {
+  tower
+  u
+  liwitch
+  quests
+  }
+#alarm (+31) {
+  tower
+  d
+  d
+  d
+  d
+  d
+  #t- hintcapture1
+  #t- hintcapture2
+  #t- questmissingcount
+  #log
+  }</value>
+    </alias>
+    <var name="questmissing" usedef="true">
+      <value>0</value>
+      <default>0</default>
+    </var>
+    <trigger name="hintcapture1" priority="10860">
+      <pattern>(%d): ----------------------------------(%s)(%d)(*)</pattern>
+      <value>hint %1</value>
+    </trigger>
+    <trigger name="hintcapture2" priority="10870">
+      <pattern>(%d):(*)(%s)(%d): ----------------------------------</pattern>
+      <value>hint %4</value>
+    </trigger>
+    <trigger name="questmissingcount" priority="10880">
+      <pattern>hint</pattern>
+      <value>#add questmissing 1</value>
+    </trigger>
+  </class>
+</cmud>

@@ -1,5 +1,6 @@
 # exabushes
 
+## JS Client
 in js client add alias 'exabushes'
 ```js
 window.gwc = gwc;
@@ -50,5 +51,21 @@ Executing action 'Orc' for quest 'Orc Figurine'
 Actions sent: s, w, n, 7w, n, w, n, e, ask orc help
 ```
 
-## TODO:
+### TODO:
  * Save state to a cookie in case of browse exit.
+
+## echo
+Build by running:
+```
+npm run pkg
+```
+
+In trigger
+```
+#file 2 c:\genesis\logs\kills.txt;#wri 2 %1;#close 2
+```
+
+run exe
+```
+C:\genesis>echo.exe c:\genesis\logs\log.txt
+```
