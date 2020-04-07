@@ -20,8 +20,7 @@ cat ~/.ssh/id_rsa.pub
 3. in title input something like 'kenneth tintin server'
 4. put copied output in key
 5. click add
-6. nu kan man clone og push uden at skulle bruge login / password konstant
-7. Now you can clone without inputting
+7. Now you can clone without inputting user/pass
 ```sh
 git clone git@github.com:KennethHolmSeelig/exabushes.git
 #answer 'yes' when prompted
