@@ -15,9 +15,8 @@ solve:
  - description: Get Quest
  #comma separated or array form
    actions: ask Karkadelt help, ask Karkadelt quest
- - description: go to fortress
+ - description: go to frotress
    actions: 2s, 12w, n, 2w, 5n
- - condition: waitUntil 10s passed
  - description: go to weapon storage
    actions: wear amulet, d, s, w, s, s, kill tough runt, get key from corpse
  - if: rat runs away with key
