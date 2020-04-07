@@ -1,0 +1,6 @@
+#session {genesis} {mud.genesismud.org} {3011}
+#alias reload {
+    #kill {all};
+    #showme <faa>Reloading ...;
+    #read init.tin;
+}
