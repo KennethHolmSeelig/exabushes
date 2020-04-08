@@ -6,3 +6,4 @@
 }
 
 #read tintin/macros.tin
+#read tintin/aliases.tin
