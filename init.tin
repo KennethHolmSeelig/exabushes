@@ -4,3 +4,5 @@
     #showme <faa>Reloading ...;
     #read init.tin;
 }
+
+#read tintin/macros.tin

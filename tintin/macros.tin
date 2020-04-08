@@ -1,0 +1,42 @@
+#nop KEYPAD MAD
+#nop NUM LOCK must be OFF
+#nop Moving: 8=n 9=ne 6=e 3=se 2=s 1=sw 4=w 7=nw +=u -=d
+#nop Looking: Press 5 then direction
+#nop Open: Press 0 then direction
+#nop Close: Press . then direction
+#macro {\eOx} {n}
+#macro {\eOu\eOx} {l n}
+#macro {\eOp\eOx} {op n}
+#macro {\eOn\eOx} {cl n}
+#macro {\eOy} {ne}
+#macro {\eOu\eOy} {l ne}
+#macro {\eOp\eOy} {op ne}
+#macro {\eOn\eOy} {cl ne}
+#macro {\eOv} {e}
+#macro {\eOu\eOv} {l e}
+#macro {\eOp\eOv} {op e}
+#macro {\eOn\eOv} {cl e}
+#macro {\eOs} {se}
+#macro {\eOu\eOs} {l se}
+#macro {\eOp\eOs} {op se}
+#macro {\eOn\eOs} {cl se}
+#macro {\eOr} {s}
+#macro {\eOu\eOr} {l s}
+#macro {\eOp\eOr} {op s}
+#macro {\eOn\eOr} {cl s}
+#macro {\eOq} {sw}
+#macro {\eOu\eOq} {l sw}
+#macro {\eOp\eOq} {op sw}
+#macro {\eOn\eOq} {cl sw}
+#macro {\eOt} {w}
+#macro {\eOu\eOt} {l w}
+#macro {\eOp\eOt} {op w}
+#macro {\eOn\eOt} {cl w}
+#macro {\eOw} {nw}
+#macro {\eOu\eOw} {l nw}
+#macro {\eOp\eOw} {op nw}
+#macro {\eOn\eOw} {cl nw}
+#macro {\eOk} {u}
+#macro {\eOu\eOk} {l u}
+#macro {\eOm} {d}
+#macro {\eOu\eOm} {l d}
