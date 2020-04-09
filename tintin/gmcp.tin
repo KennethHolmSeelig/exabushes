@@ -19,9 +19,9 @@
   #send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
 }
 
-#event {IAC SB GMCP Char.Vitals IAC SE}
+#event {IAC SB GMCP char.vitals IAC SE}
 {
   #echo %0
   #echo %1
-  #var gmcp[Char][Vitals] {%0}
+  #var gmcp[char][vitals] {%0}
 }
