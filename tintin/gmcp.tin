@@ -1,0 +1,22 @@
+#format IAC  %a 255
+#format DONT %a 254
+#format DO   %a 253
+#format WONT %a 252
+#format WILL %a 251                                                 
+#format SB   %a 250
+#format SE   %a 240
+
+#format GMCP %a 201
+#config {debug telnet} {on}
+
+
+#var CLIENT_NAME TinTin++
+#var CLIENT_VERSION 2.00.9
+
+#event {IAC WILL GMCP}
+{       
+	#send {$IAC$DO$GMCP\};
+	#send {$IAC$SB${GMCP}Core.Hello { "client": "$CLIENT_NAME", "version": "$CLIENT_VERSION" } $IAC$SE\};     
+	#send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
+	
+}
