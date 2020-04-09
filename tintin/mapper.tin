@@ -10,7 +10,7 @@
 
 #nop Turn telnet debug off once everything works as it's spammy.
 
-#config {debug telnet} {off}
+#config {debug telnet} {on}
 
 #var CLIENT_NAME TinTin++
 #var CLIENT_VERSION 2.00.3

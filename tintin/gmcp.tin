@@ -9,14 +9,19 @@
 #format GMCP %a 201
 #config {debug telnet} {on}
 
-
 #var CLIENT_NAME TinTin++
 #var CLIENT_VERSION 2.00.9
 
 #event {IAC WILL GMCP}
-{       
-	#send {$IAC$DO$GMCP\};
-	#send {$IAC$SB${GMCP}Core.Hello { "client": "$CLIENT_NAME", "version": "$CLIENT_VERSION" } $IAC$SE\};     
-	#send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
-	
+{
+  #send {$IAC$DO$GMCP\};
+  #send {$IAC$SB${GMCP}Core.Hello { "client": "$CLIENT_NAME", "version": "$CLIENT_VERSION" } $IAC$SE\};     
+  #send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
+}
+
+#event {IAC SB GMCP char.vitals IAC SE}
+{
+  #showme char
+  #showme vitals
+  #var gmcp[char][vitals] {%0}
 }
