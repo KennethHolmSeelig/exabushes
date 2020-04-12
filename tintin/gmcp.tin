@@ -21,7 +21,5 @@
 
 #event {IAC SB GMCP char.vitals IAC SE}
 {
-  #echo %0
-  #echo %1
   #var gmcp[char][vitals] {%0}
 }
