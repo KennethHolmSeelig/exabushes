@@ -1,17 +1,14 @@
-#showme <faa>Loading macros ...;
 #nop KEYPAD MAD
 #nop NUM LOCK must be OFF
-#nop Moving: 8=n 9=ne 6=e 3=se 2=s 1=sw 4=w 7=nw +=u -=d
-#nop Looking: Press 5 then direction
-#nop Open: Press 0 then direction
-#nop Close: Press . then direction
-#macro {\e[A} {n}
-#macro {\e[5~} {ne}
-#macro {\e[C} {e}
-#macro {\e[6~} {se}
-#macro {\e[B} {s}
-#macro {\e[F} {sw}
-#macro {\e[D} {w}
-#macro {\e[D} {nw}
-#macro {-} {u}
-#macro {+} {d}
+#nop Moving: 8=n 9=ne 6=e 3=se 2=s 1=sw 4=w 7=nw +=u -=d 5=look
+#macro {\eOx} {n}
+#macro {\eOy} {ne}
+#macro {\eOv} {e}
+#macro {\eOs} {se}
+#macro {\eOr} {s}
+#macro {\eOq} {sw}
+#macro {\eOt} {w}
+#macro {\eOw} {nw}
+#macro {\eOk} {u}
+#macro {\eOm} {d}
+#macro {\eOu} {u}

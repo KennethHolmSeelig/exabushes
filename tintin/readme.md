@@ -20,3 +20,8 @@ tar -zxvf tintin-2.02.02.tar.gz
 cd tt/src
 ./configure
 sudo make install
+
+
+split map
+#split 16 1
+#map flag vtmap
