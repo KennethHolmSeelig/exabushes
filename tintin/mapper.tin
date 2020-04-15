@@ -25,3 +25,5 @@
     #echo {  y=$room[y]};
     return;
 }
+
+#alias {dr}{echo @displayRoom{};}
