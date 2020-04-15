@@ -8,7 +8,7 @@ tail.on('line', (line) => {
   const data = line;
   
   const options = {
-    hostname: '23.236.55.114',
+    hostname: '35.223.117.181',
     port: 80,
     path: '/echo',
     method: 'POST',
