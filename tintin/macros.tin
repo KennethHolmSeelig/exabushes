@@ -9,6 +9,6 @@
 #macro {\eOq} {sw}
 #macro {\eOt} {w}
 #macro {\eOw} {nw}
-#macro {\eOk} {u}
-#macro {\eOm} {d}
-#macro {\eOu} {u}
+#macro {\eOS} {u}
+#macro {\eO1} {d}
+#macro {\eOu} {l}
