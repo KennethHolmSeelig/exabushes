@@ -1,182 +1,27 @@
-#format IAC  %a 255
-#format DONT %a 254
-#format DO   %a 253
-#format WONT %a 252
-#format WILL %a 251
-#format SB   %a 250
-#format SE   %a 240
-
-#format GMCP %a 201
-
-#nop Turn telnet debug off once everything works as it's spammy.
-
-#config {debug telnet} {on}
-
-#var CLIENT_NAME TinTin++
-#var CLIENT_VERSION 2.00.3
-
-#nop Translation table to handle implementation differences.
-
-#var {DIR_NAME}
-{
-        {n} {N}
-        {e} {E}
-        {s} {S}
-        {w} {W}
-        {u} {U}
-        {d} {D}
-        {north} {N}
-        {east} {E}
-        {south} {S}
-        {west} {W}
-        {up} {U}
-        {down} {D}
-}
-
-#nop Utility function to generate color gradients, requires 256 color terminal.
-
-#function {colscale}
-{
-        #switch {10 * %1 / %2}
-        {
-                #case {0} {#return <faa>};
-                #case {1} {#return <fba>};
-                #case {2} {#return <fca>};
-                #case {3} {#return <fda>};
-                #case {4} {#return <fea>};
-                #case {5} {#return <ffa>};
-                #case {6} {#return <efa>};
-                #case {7} {#return <dfa>};
-                #case {8} {#return <cfa>};
-                #case {9} {#return <bfa>};
-                #default  {#return <afa>}
-        }
-}
-
-#event {PROGRAM START}
-{
-        #var CLIENT_NAME %0;
-        #var CLIENT_VERSION %1
-}
-
-#event {IAC WILL GMCP}
-{
-        #send {$IAC$DO$GMCP\};
-        #send {$IAC$SB$GMCP core.hello { "client": "$CLIENT_NAME", "version": "$CLIENT_VERSION" } $IAC$SE\};
-        #send {$IAC$SB$GMCP core.supports.set [ "room 1", "room.info 1", "char 1", "char.status 1" ] $IAC$SE\}
-}
-
-#event {IAC SB GMCP char.status IAC SE}
-{
-        #var gmcp[char][status] {%0}
-}
-
-#event {IAC SB GMCP char.base IAC SE}
-{
-        #var gmcp[char][base] {%0}
-}
-
-#event {IAC SB GMCP char.vitals IAC SE}
-{
-        #var gmcp[char][vitals] {%0}
-}
-
-#event {IAC SB GMCP char.maxstats IAC SE}
-{
-        #var gmcp[char][maxstats] {%0}
-}
-
-#event {IAC SB GMCP char.worth IAC SE}
-{
-        #var gmcp[char][worth] {%0}
-}
-
-#tick {prompt_update}
-{
-        #if {&gmcp[char][] != 5}
-        {
-                #return
-        };
-
-        #format {prompt} {};
-
-        #format {prompt} {$prompt<038> Hp: @colscale{$gmcp[char][vitals][hp];$gmcp[char][maxstats][maxhp]}%+4s<238>/<138>%-4s } {$gmcp[char][vitals][hp]} {$gmcp[char][maxstats][maxhp]};
-        #format {prompt} {$prompt<238> Mn: @colscale{$gmcp[char][vitals][mana];$gmcp[char][maxstats][maxmana]}%+3s<238>/<138>%-3s } {$gmcp[char][vitals][hp]} {$gmcp[char][maxstats][maxmana]};
-        #format {prompt} {$prompt<238> Mv: @colscale{$gmcp[char][vitals][moves];$gmcp[char][maxstats][maxmoves]}%+3s<238>/<138>%-3s } {$gmcp[char][vitals][moves]} {$gmcp[char][maxstats][maxmoves]};
-        #format {prompt} {$prompt<238> Xp: @colscale{$gmcp[char][status][tnl];1000}%-3m } {100 * $gmcp[char][status][tnl] / 1000};
-        #format {prompt} {$prompt<238> Gd: <128>%-8s } {$gmcp[char][worth][gold]};
-
-        #var exits {};
-
-        #foreach {n;north;e;east;s;south;w;west;u;up;d;down} {exit}
-        {
-                #if {&gmcp[room][info][exits][$exit] == 0}
-                {
-                        #continue
-                };
-
-                #var {exits} {$exits<128>$DIR_NAME[$exit]}
-        };
-        #format {prompt} {$prompt <238>Ex: %-6s} {$exits   <088>};
-
-        #line ignore #showme {$prompt} {1}
-}
-{1}
-
 #event {IAC SB GMCP room.info IAC SE}
 {
-        #var gmcp[room][info] {%0};
-
-        #if {$gmcp[room][info][num] == -1}
-        {
-                #return
-        };
-
-        #map goto {$gmcp[room][info][num]} {dig};
-
-        #map get roomarea {result};
-
-        #if {"$result" == ""}
-        {
-                #map set roomarea $gmcp[room][info][zone];
-                #map set roomnote $gmcp[room][info][environment];
-                #map set roomname $gmcp[room][info][name];
-                #map set roomterr $gmcp[room][info][terrain];
-                #map set roominfo $gmcp[room][info][details];
-                #map set roomcolor <178>
-        };
-
-        #foreach {$gmcp[room][info][exits][]} {exit}
-        {
-                #map get {roomexit} {result};
-
-                #if {&result[$exit] == 0}
-                {
-                        #map get {roomvnum} {result} {$gmcp[room][info][exits][$exit]};
-
-                        #map dig {$exit} {$gmcp[room][info][exits][$exit]};
-
-                        #if {$result == 0}
-                        {
-                                #map set {roomcolor} {<fca>} {$gmcp[room][info][exits][$exit]}
-                        }
-                }
-        }
-
+    #var room {%0};
+    @displayRoom{};
 }
 
-#event {SESSION CONNECTED}
-{
-        #split 16 1;
-        #map create 100000;
-        #map goto 1;
-        #map flag vtmap;
-        #map flag static;
-        #map flag nofollow;
-        #map read gmcp.map
-}
+#function {displayRoom} {
+    #echo room;
+    #echo {  id=$room[id]};
+  
+    #nop iterate through doors;
+    #echo {  -doors};
+    #foreach {*room[doors][]} {doorIndex} {
+        #echo {    $doorIndex=$room[doors][$doorIndex]};
+    };
 
-#event {SESSION DISCONNECTED}
-{
-        #map write gmcp.map
+    #nop iterate through exits;
+    #echo {  -exits};
+    #foreach {*room[exits][]} {exitIndex} {
+        #echo {    $exitIndex=$room[exits][$exitIndex]};
+    };
+
+    #echo {  short=$room[short]};
+    #echo {  x=$room[x]};
+    #echo {  y=$room[y]};
+    return;
 }

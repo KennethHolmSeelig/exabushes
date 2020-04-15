@@ -1,6 +1,7 @@
 #nop KEYPAD MAD
 #nop NUM LOCK must be OFF
 #nop Moving: 8=n 9=ne 6=e 3=se 2=s 1=sw 4=w 7=nw +=u -=d 5=look
+#showme <faa>Loading macros
 #macro {\eOx} {n}
 #macro {\eOy} {ne}
 #macro {\eOv} {e}
