@@ -25,3 +25,31 @@ cat ~/.ssh/id_rsa.pub
 git clone git@github.com:KennethHolmSeelig/exabushes.git
 #answer 'yes' when prompted
 ```
+
+
+## putty
+download putty and puttygen
+
+### On windows
+1. create a key with puttygen
+2. save keys, copy public key to buffer
+3. on cloud client, put public key in ~/
+4. 
+
+### On unix
+
+username is gmail account
+```sh
+ssh-keygen -t rsa -C [USERNAME]
+<enter>
+<enter>
+<enter>
+```
+
+2.
+```sh
+
+```
+
+Add as new key here, restart client
+https://console.cloud.google.com/compute/metadata/sshKey
