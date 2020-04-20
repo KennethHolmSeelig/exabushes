@@ -11,5 +11,5 @@
 #macro {\eOt} {w}
 #macro {\eOw} {nw}
 #macro {\eOS} {u}
-#macro {\eO1} {d}
+#macro {\eOl} {d}
 #macro {\eOu} {l}

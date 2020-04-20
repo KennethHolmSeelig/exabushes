@@ -46,10 +46,14 @@ ssh-keygen -t rsa -C [USERNAME]
 <enter>
 ```
 
-2.
+2. convert ssh key to ppk
 ```sh
-
+puttygen ~/.ssh/id_rsa -o keyfile.ppk
 ```
+
+3. start putty
+4. create new session
+5. in auth browse to <keyfile>.ppk
 
 Add as new key here, restart client
 https://console.cloud.google.com/compute/metadata/sshKey
