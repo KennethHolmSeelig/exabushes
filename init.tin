@@ -4,7 +4,7 @@
     #showme <faa>Reloading ...;
     #read init.tin;
 }
-
+#config {REPEAT ENTER} {ON}
 #read tintin/macros.tin
 #read tintin/aliases.tin
 #read tintin/gmcp.tin
