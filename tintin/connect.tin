@@ -5,7 +5,7 @@
 #gts #session mapper localhost 8080
 #event {MAP ENTER ROOM}
 {
-  #echo "Event triggered";
+  #showme "Event triggered";
   #map map 80 51 variable mapvar;
   #mapper #line substitute secure {#send $mapvar};
 }
