@@ -1,12 +1,8 @@
-#event {SESSION ACTIVATED}
-{
-  #send lokthar
-  #send Fa2ME,.nE@
+#event {SESSION CONNECTED} {
+  #showme {CONNECTED: %0};
+  #regex {%0} {^genesis} {CONNECT lokthar Fa2ME,.nE@} {0};
 }
 #session {genesis} {mud.genesismud.org} {3011}
-#event {SESSION ACTIVATED}
-{
-}
 
 #alias reload {
     #kill {all};
