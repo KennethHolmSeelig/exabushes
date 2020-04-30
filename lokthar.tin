@@ -1,8 +1,10 @@
 #event {SESSION CONNECTED} {
   #showme {CONNECTED: %0};
   #regex {%0} {^genesis} {lokthar}
-  #delay {1} {Fa2ME,.nE@}
-  #unevent {SESSION CONNECTED}
+  #delay {1} {
+    Fa2ME,.nE@
+    #unevent {SESSION CONNECTED}
+  }
 }
 
 #session {genesis} {mud.genesismud.org} {3011}
