@@ -1,0 +1,19 @@
+#event {SESSION ACTIVATED}
+{
+  #send lokthar
+  #send Fa2ME,.nE@
+}
+#session {genesis} {mud.genesismud.org} {3011}
+#event {SESSION ACTIVATED}
+{
+}
+
+#alias reload {
+    #kill {all};
+    #showme <faa>Reloading ...;
+    #read init.tin;
+}
+#config {REPEAT ENTER} {ON}
+#read tintin/macros.tin
+#read tintin/aliases.tin
+#read tintin/gmcp.tin
