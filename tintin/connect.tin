@@ -7,5 +7,5 @@
 {
   #echo Event triggered
   #map map 80 51 variable mapvar;
-  #mapper #line substitute secure {$mapvar};
+  #mapper #line substitute secure {#send $mapvar};
 }
