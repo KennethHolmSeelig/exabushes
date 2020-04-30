@@ -1,0 +1,12 @@
+#map read tintin/tutorial.map
+#map goto 1
+#map map
+
+#session mapper localhost 8080
+#genesis
+#event {MAP ENTER ROOM}
+{
+  #map map 80x24 mapvar v;
+  #mapper;
+  #line sub {secure;var} #send {$mapvar};
+}
