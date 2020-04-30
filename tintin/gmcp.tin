@@ -1,3 +1,4 @@
+#showme <faa>Loading GMCP
 #format IAC  %a 255
 #format DONT %a 254
 #format DO   %a 253
