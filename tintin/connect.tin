@@ -2,11 +2,10 @@
 #map goto 1
 #map map
 
-#session mapper localhost 8080
-#genesis
+#gts #session mapper localhost 8080
 #event {MAP ENTER ROOM}
 {
-  #map map 80x24 mapvar v;
-  #mapper;
-  #line sub {secure;var} #send {$mapvar};
+  #echo Event triggered
+  #map map 80 51 variable mapvar;
+  #mapper #line substitute secure {$mapvar};
 }
