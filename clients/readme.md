@@ -57,3 +57,20 @@ puttygen ~/.ssh/id_rsa -o keyfile.ppk
 
 Add as new key here, restart client
 https://console.cloud.google.com/compute/metadata/sshKey
+
+# Install tintin
+
+```sh
+sudo apt-get remove tintin++
+sudo apt install build-essential
+mkdir tintin
+cd tintin
+sudo apt-get install zlib1g-dev
+sudo apt-get install libpcre++-dev
+wget https://downloads.sf.net/tintin/tintin-2.02.02.tar.gz
+tar -zxvf tintin-2.02.02.tar.gz
+cd tt/src
+./configure
+make clean && make && sudo make install && tt++
+hash -r
+```

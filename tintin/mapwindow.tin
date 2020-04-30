@@ -1,0 +1,8 @@
+#ses mapper localhost 8080
+
+#event {MAP ENTER ROOM}
+{
+  #map map 80x24 mapvar v;
+#NOP  #mapper #line sub {secure;var}
+#NOP  #send {$mapvar}
+}

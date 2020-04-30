@@ -1,7 +1,7 @@
 #CLASS {ImbueSub}
-#TRIGGER {(Purple gleam)} {#sub {%1 [Parry skill]};#cap tells}
+#TRIGGER {(Purple gleam)} {#sub {%-1 [+Parry skill][deftstone]}}
 #TRIGGER {Gleam of mithril} {#sub {INC DURA};#cap tells}
-#TRIGGER {smell of vanilla} {#sub {DIS};#cap tells}
+#TRIGGER {(A* smell of vanilla emanates from its surface.)} {#sub {%-1 [+Discipline][steelstone]}}
 #TRIGGER {smell of sage} {#sub {WIS};#cap tells}
 #TRIGGER {smell of lavender} {#sub {INT};#cap tells}
 #TRIGGER {smell of alcohol} {#sub {CON};#cap tells}
@@ -14,7 +14,7 @@
 #TRIGGER {Aura of a stallion} {#sub {POLEARM};#cap tells}
 #TRIGGER {Aura of a boar} {#sub {CLUB};#cap tells}
 #TRIGGER {Aura of well-being} {#sub {AC};#cap tells}
-#TRIGGER {Aura of crimson energy} {#sub {SPELLCRAFT};#cap tells}
+#TRIGGER {(A * Aura of crimson energy *)} {#sub {%-1 [+Spellcraft skill][lodestone]}}
 #TRIGGER {Aura of light} {#sub {LIGHT};#cap tells}
 #TRIGGER {Aura of darkness} {#sub {DARK};#cap tells}
 #TRIGGER {Aura of viciousness} {#sub {TO HIT};#cap tells}
@@ -36,10 +36,11 @@
 #TRIGGER {Topaz formations} {#sub {ANTI TROLL};#cap tells}
 #TRIGGER {Diamond formations} {#sub {ANTI DRAGON};#cap tells}
 #TRIGGER {Bone formations} {#sub {ANTI UNDEAD};#cap tells}
-#TRIGGER {Sapphire formations} {#sub {ANTI HUMAN};#cap tells}
+#TRIGGER {(Sapphire formations *)} {#sub {%-1 [+Fire Damage humans][fellstone]}}
 #TRIGGER {Ivory formations} {#sub {ANTI MINOTAUR};#cap tells}
 #TRIGGER {Quartz formations} {#sub {ANTI HALFLING};#cap tells}
 #TRIGGER {Mithril formations} {#sub {ANTI DWARF};#cap tells}
+#TRIGGER {(Mithril formations *)} {#sub {%-1 [+Fire Damage dwarves][gallstone]}}
 #TRIGGER {Peridot formations} {#sub {ANTI GNOME};#cap tells}
 #TRIGGER {Onyx formations} {#sub {ANTI Goblin};#cap tells}
 #TRIGGER {Beryl formations} {#sub {ANTI ELF};#cap tells}
@@ -47,12 +48,13 @@
 #TRIGGER {purring sound} {#sub {SNEAK - HIDE};#cap tells}
 #TRIGGER {hissing sound} {#sub {WATER DMG};#cap tells}
 #TRIGGER {ringing in your ears} {#sub {AIRMAG RESISTANCE};#cap tells}
-#TRIGGER {whine} {#sub {HASTE};#cap tells}
+#TRIGGER {(A. * whine is comming from *)} {#sub {%-1 [+Quickness][mercurystone]}}
 #TRIGGER {green moisture} {#sub {POISON};#cap tells}
 #TRIGGER {clusters of frost} {#sub {COLD DMG};#cap tells}
 #TRIGGER {odor of decay} {#sub {DEATH DMG};#cap tells}
 #TRIGGER {swirling bands of yellow energy} {#sub {DEFENCE};#cap tells}
-#TRIGGER {orange glow} {#sub {AWARENESS};#cap tells}
+#TRIGGER {(It is surrounded by * swirling bands of yellow energy)} {#sub {%-1 [+Defense][shieldstone]}}
+#TRIGGER {(A* orange glow surrounds its surface.)} {#sub {%-1 [+Awareness skill][eyestone]}}
 #TRIGGER {electricty play} {#sub {ELECTRICITY DMG};#cap tells}
 #TRIGGER {disturbance in the air surrounding} {#sub {AIR-BOLT DMG};#cap tells}
 #TRIGGER {white flames} {#sub {ELEMENTAL DMG};#cap tells}
@@ -62,9 +64,10 @@
 #TRIGGER {hair-raising} {#sub {RES TO ELECTRICITY DMG};#cap tells}
 #TRIGGER {urge to sneeze} {#sub {ANTI POISON};#cap tells}
 #TRIGGER {goosebumps} {#sub {RES TO COLD};#cap tells}
-#TRIGGER {itching sensation} {#sub {RES TO ACID DMG};#cap tells;#untrigger stalk}
+#TRIGGER {(It is surrounded by * swirling bands of yellow energy)} {#sub {%-1 [+Defense][shieldstone]}}
+#TRIGGER {(Being around this object gives you a* itching sensation.)} {#sub {%-1 [+Resist acid][salvestone]}}
 #TRIGGER {blue tint} {#sub {LIFE MAGIC SKILL};#cap tells}
-#TRIGGER {sparkle bewitches} {#sub {DARKVISION};#cap tells}
+#TRIGGER {(A* sparkle bewitches your senses as you peer at it.)} {#sub {%-1 [Darkvision][torchstone]}}
 #TRIGGER {smell of cinnamon} {#sub {DEX};#cap tells}
 #TRIGGER {fluctuation in the} {#sub {EARTH DMG};#cap tells}
 #CLASS 0
