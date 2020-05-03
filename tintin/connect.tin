@@ -7,5 +7,10 @@
 {
   #showme "Event triggered";
   #map map 80 51 variable mapvar;
+  
+  
+  #nop https://tintinplusplus-unoffical-documentation.readthedocs.io/en/latest/contents/features/mapper/03_map-display.html?highlight=map%20display
+  
+  
   #mapper #line substitute secure {#send $mapvar};
 }

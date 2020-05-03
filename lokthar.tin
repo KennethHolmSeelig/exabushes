@@ -2,7 +2,7 @@
   #showme {CONNECTED: %0};
   #regex {%0} {^genesis} {lokthar}
   #delay {1} {
-    #echo Password
+    #showme "password";
     Fa2ME,.nE@
   }
 }
