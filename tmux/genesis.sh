@@ -5,10 +5,26 @@
 # Requires Tmux 1.5 - See http://theixle.dyndns.org for a download link.
 
 tmux kill-session -t genesis
-tmux new-session -d -s genesis -x 189 -y 47
-tmux splitw -h -l 159 "tail -fs .1 `pwd`/afile.txt"
+tmux new-session -d -s genesis -x 147 -y 50
+#map map 64 64 overwrite map.txt;
+# split it into two halves
+tmux splitw -h -p 50 "tail -fs .1 -n 80 `pwd`/output/map.txt"
+tmux selectp -t 0
+tmux splitw -v -l 40 "tt++ -G `pwd`/lokthar.tin;bash -i"
+tmux selectp -t 0
+tmux splitw -v -l 22 "tail -fs .1 `pwd`/output/chat.txt"
+tmux selectp -t 2
 tmux attach-session -t genesis
-tmux splitw -v -l 37 "tt++ -G `pwd`/exabushes/lokthar.tin;bash -i"
+
+
+tail -fs .1 `pwd`/output/chat.txt
+
+selectp -t 1 # select the new, second (1) pane
+tmux splitw -v -l 22 "tail -fs .1 -n 80 `pwd`/output/map.txt"
+tmux selectp -t 0
+tmux splitw -h -l 159 "tail -fs .1 `pwd`/output/chat.txt"
+tmux selectp -t 0
+tmux attach-session -t genesis
 
 #tmux splitw -h -l 68 'tail -fs .1 /home/adam/tt/aard/chars'
 #tmux selectp -t 0
