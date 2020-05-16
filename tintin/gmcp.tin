@@ -17,7 +17,7 @@
 {
   #send {$IAC$DO$GMCP\};
   #send {$IAC$SB${GMCP}Core.Hello { "client": "TinTin++", "version": "2.01.1" } $IAC$SE\};     
-  #send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
+  #send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1", "Comm 1" ] $IAC$SE\}
 }
 
 #event {IAC SB GMCP char.vitals IAC SE}

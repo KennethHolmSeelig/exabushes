@@ -1,0 +1,3 @@
+#event {IAC SB GMCP comm.channel IAC SE}{
+  #echo {%1}
+}
