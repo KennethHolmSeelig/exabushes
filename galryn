@@ -1,0 +1,434 @@
+#ACTION {A dark room.}
+{
+     @gonext{$rob}
+}
+
+#ACTION {General store}
+{
+     sell all;
+     n;
+     e;
+     e;
+     se;
+     e;
+     dep;
+     nw;
+     w;
+     w;
+     nw
+}
+
+#ACTION {It is too dark to see anything in here.}
+{
+     @gonext{$rob}
+}
+
+#ACTION {PATH WALK: #END OF PATH.}
+{
+     #undelay herbdelay;
+     #variable rob 0;
+     stop;
+     #path destroy;
+     #delay {startmoors} {#path load moors;#var rob 1;shh} {600}
+}
+
+#ACTION {The dish of bread and cheese is too much for you.}
+{
+     put dish in worn pack
+}
+
+#ACTION {You are physically feeling very well and mentally in full vigour.}
+{
+     get dish from pack;
+     eat dish
+}
+
+#ACTION {You find a}
+{
+     shh
+}
+
+#ACTION {You search everywhere, but find no herbs.}
+{
+     @gonext{$rob}
+}
+
+#ACTION {Your search reveals nothing special.}
+{
+     #if {$sa==1}
+     {
+          moveon2
+     };
+     #else
+     {
+          #showme script broken $num
+     }
+}
+
+#ACTION {arrives}
+{
+     #delay {MoveIfSomeoneArrived} {{@gonext{$rob}}} {5}
+}
+
+#ACTION {disembark!}
+{
+     disembark
+}
+
+#ACTION {is feeling}
+{
+     @gonext{$rob}
+}
+
+#ACTION {leaves}
+{
+     #undelay MoveIfSomeoneArrived
+}
+
+
+#ALIAS {bt}
+{
+     buy ticket;
+     board ship
+}
+
+#ALIAS {dep}
+{
+     deposit coins
+}
+
+#ALIAS {ep}
+{
+     exa pouch
+}
+
+#ALIAS {herb}
+{
+     #variable herb %0
+}
+
+#ALIAS {herb2}
+{
+     #variable herb {salt wort}
+}
+
+#ALIAS {loadmoors}
+{
+     #map load moors;
+     shh
+}
+
+#ALIAS {moveon}
+{
+     $kalamanlist[$num];
+     #math num $num + 1;
+     #delay {herbdelay} {shh} {7.5}
+}
+
+#ALIAS {moveon2}
+{
+     #path walk;
+     #delay {herbdelay} {shh} {0.5}
+}
+
+#ALIAS {moveondd}
+{
+     $kalamanlist[$num];
+     #math num $num + 1
+}
+
+#ALIAS {ph}
+{
+     put herbs in pouch
+}
+
+#ALIAS {reload}
+{
+     #kill {all};
+     #showme <faa>Reloading ...;
+     #read init.tin
+}
+
+#ALIAS {sa}
+{
+     sell all
+}
+
+#ALIAS {shh}
+{
+     #if {$rob>0}
+     {
+          search here for $herb
+     }
+}
+
+#ALIAS {startagail}
+{
+     startagain
+}
+
+#ALIAS {startagain}
+{
+     #delay {starting} {#var rob 1;herb2;shh;eat dish} {1200}
+}
+
+#ALIAS {tomoors}
+{
+     sw;
+     s;
+     sw;
+     sw;
+     sw;
+     nw;
+     nw;
+     nw;
+     sw;
+     sw;
+     s;
+     w;
+     w;
+     u;
+     w;
+     u;
+     u;
+     nw;
+     d;
+     d;
+     w;
+     d;
+     w;
+     nw;
+     nw;
+     w;
+     sw;
+     w;
+     nw;
+     w;
+     nw;
+     w;
+     w;
+     w;
+     sw;
+     w;
+     w;
+     w;
+     nw;
+     w;
+     s;
+     sw
+}
+
+#ALIAS {tomoors2}
+{
+     n;
+     n;
+     n;
+     n;
+     nw;
+     nw;
+     w;
+     w;
+     w;
+     w
+}
+
+#ALIAS {tosf}
+{
+     ne;
+     ne;
+     se;
+     e;
+     e;
+     e;
+     ne;
+     e;
+     se;
+     e;
+     se;
+     e;
+     ne;
+     e;
+     se;
+     se;
+     e;
+     u;
+     e;
+     u;
+     u;
+     se;
+     d;
+     d;
+     e;
+     d;
+     e;
+     e;
+     n;
+     ne;
+     ne;
+     se;
+     se;
+     ne;
+     ne;
+     ne;
+     n;
+     ne
+}
+
+#ALIAS {x}
+{
+     exa
+}
+
+
+#CONFIG           {AUTO TAB}  {5000}
+#CONFIG           {BUFFER SIZE}  {10000}
+#CONFIG           {CHARSET}  {UTF-8}
+#CONFIG           {COLOR MODE}  {TRUE}
+#CONFIG           {COLOR PATCH}  {OFF}
+#CONFIG           {COMMAND COLOR}  {\e[0;37m}
+#CONFIG           {COMMAND ECHO}  {ON}
+#CONFIG           {CONNECT RETRY}  {0.0}
+#CONFIG           {DEBUG TELNET}  {OFF}
+#CONFIG           {HISTORY SIZE}  {1000}
+#CONFIG           {LOG MODE}  {RAW}
+#CONFIG           {MOUSE TRACKING}  {OFF}
+#CONFIG           {PACKET PATCH}  {AUTO TELNET}
+#CONFIG           {RANDOM SEED}  {3781870843}
+#CONFIG           {REPEAT CHAR}  {!}
+#CONFIG           {REPEAT ENTER}  {ON}
+#CONFIG           {SCREEN READER}  {OFF}
+#CONFIG           {SCROLL LOCK}  {ON}
+#CONFIG           {SPEEDWALK}  {OFF}
+#CONFIG           {TAB WIDTH}  {8}
+#CONFIG           {TELNET}  {ON}
+#CONFIG           {TINTIN CHAR}  {#}
+#CONFIG           {VERBATIM}  {OFF}
+#CONFIG           {VERBATIM CHAR}  {\}
+#CONFIG           {VERBOSE}  {OFF}
+#CONFIG           {WORDWRAP}  {ON}
+
+#EVENT {IAC SB GMCP char.vitals IAC SE}
+{
+     #variable gmcp[char][vitals] {%0}
+}
+
+#EVENT {IAC WILL GMCP}
+{
+     #send {$IAC$DO$GMCP\};
+     #send {$IAC$SB${GMCP}Core.Hello { "client": "TinTin++", "version": "2.01.1" } $IAC$SE\};
+     #send {$IAC$SB${GMCP}Core.Supports.Set [ "Core 1", "Char 1", "Room 1" ] $IAC$SE\}
+}
+
+
+#FUNCTION {gonext}
+{
+     #switch {%1}
+     {
+          #case {0}
+          {
+               #return
+          };
+          #case {1}
+          {
+               #return moveon
+          };
+          #case {2}
+          {
+               #return moveon2
+          }
+     }
+}
+
+
+#MACRO {\eOS}
+{
+     u
+}
+
+#MACRO {\eOl}
+{
+     d
+}
+
+#MACRO {\eOq}
+{
+     sw
+}
+
+#MACRO {\eOr}
+{
+     s
+}
+
+#MACRO {\eOs}
+{
+     se
+}
+
+#MACRO {\eOt}
+{
+     w
+}
+
+#MACRO {\eOu}
+{
+     l
+}
+
+#MACRO {\eOv}
+{
+     e
+}
+
+#MACRO {\eOw}
+{
+     nw
+}
+
+#MACRO {\eOx}
+{
+     n
+}
+
+#MACRO {\eOy}
+{
+     ne
+}
+
+
+#PATHDIR          {d}  {u}  {32}
+#PATHDIR          {e}  {w}  {2}
+#PATHDIR          {n}  {s}  {1}
+#PATHDIR          {ne}  {sw}  {3}
+#PATHDIR          {nw}  {se}  {9}
+#PATHDIR          {s}  {n}  {4}
+#PATHDIR          {se}  {nw}  {6}
+#PATHDIR          {sw}  {ne}  {12}
+#PATHDIR          {u}  {d}  {16}
+#PATHDIR          {w}  {e}  {8}
+
+#TICKER           {keepalive}  {v}  {240}
+
+#VARIABLE         {CLIENT_NAME}  {TinTin++}
+#VARIABLE         {CLIENT_VERSION}  {2.01.1}
+#VARIABLE         {DO}  {ý}
+#VARIABLE         {DONT}  {þ}
+#VARIABLE         {GMCP}  {É}
+#VARIABLE         {IAC}  {ÿ}
+#VARIABLE         {SB}  {ú}
+#VARIABLE         {SE}  {ð}
+#VARIABLE         {WILL}  {û}
+#VARIABLE         {WONT}  {ü}
+#VARIABLE         {gmcp}  {{char}{{vitals}{{drink}{drink quite a lot more}}}}
+#VARIABLE         {gont}  {n;n;ne;nw;n;n;ne;n;nw;nw;n;ne;ne;ne;n;ne;n;e;ne;ne;n;nw;n;ne;nw;nw;n;n;nw;nw;n;nw;nw;n;nw;e;ne;n;w;n;e;n;n;ne;sw;w;nw;nw;ne;ne;ne;ne;se;ne;sw;nw;sw;sw;sw;nw;nw;ne;n;ne;s;n;e;e;e;se}
+#VARIABLE         {herb}  {suranie}
+#VARIABLE         {kalaman}  {w;w;w;w;w;w;w;w;w;s;w;w;s;w;w;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;w;w;s;w;w;w;w;w;w;w;w;w;w;s;w;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;s;w;w;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;w;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;n;n;n;n;n;n;n;e;s;s;s;s;s;s;e;s;s}
+#VARIABLE         {kalaman2}  {n;n;w;n;n;n;n;n;n;w;s;s;s;s;s;s;s;s;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;e;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;w;e;e;n;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;e;n;e;e;e;e;e;e;e;e;e;e;n;e;e;w;w;w;w;w;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;e;e;e;e;e;n;w;w;w;w;w;w;w;w;w;w;w;w;e;e;n;e;e;n;e;e;e;e;e;e;e;e;e}
+#VARIABLE         {kalamanlist}  {{1}{s;w;w;w;w;w;w;w;w;w;herb chicory}{2}{e;e;e;s}{3}{e}{4}{s;s}{5}{s;s}{6}{w;w;w;w;w;w;w;n;n;herb2}{7}{s;w}{8}{s;s;w}{9}{s;s;s;w;w;w}{10}{s;w}{11}{w}{12}{s}{13}{s;s;s;s;s;w}{14}{e;s;s}{15}{s;s;s;s;s}{16}{s;w}{17}{e;e;e;n;n;n;n;n;e;herb chicory}{18}{n;n;w}{19}{e;e;e;e;e;e;s;s}{20}{e;e;e;e;e;e;e;e;n;n}{21}{w;w;w;w;w;n;n}{22}{e;n}{23}{n;n;w;w;w;w;w}{24}{n;n;e;e}{25}{e;e;e;e;e;e;e;s}{26}{n;n;w;n;n;n;n;n;n;n;n;n;n;e;e;e;e;e;herb2}{27}{#echo SCRIPTDONE;eat dish;eat dish;eat dish;#var rob 0;#var num 0;startagail}}
+#VARIABLE         {kalamanlist2}  {{1}{s;w;w;w;w;w;w;w;w;w;herb chicory}{2}{e;e;e;s}{3}{e}{4}{s;s}{5}{s;s}{6}{w;w;w;w;w;w;w;n;n;herb2}{7}{s;w}{8}{s;w;s}{9}{s;s;s;w;w;w}{10}{s;w}{11}{w}{12}{s}{13}{s;s;s;s;s;w}{14}{e;s;s}{15}{s;s;s;s;s}{16}{s;w}{17}{#echo SCRIPTDONE;#var rob 0;#var num 1}}
+#VARIABLE         {moors}  {herb drakeroot;e;e;e;e;se;w;w;w;w;w;w;se;e;e;e;e;e;e;se;w;w;w;w;w;w;se;e;e;e;e;e;e;se;w;w;w;w;w;w;se;e;e;tomoors2;herb chicory;e;e;e;e;se;w;w;w;w;w;w;se;e;e;e;e;e;e;se;w;w;w;w;w;w;se;e;e;e;e;e;e;se;w;w;w;w;w;w;se;e;e;tomoors2;tosf;w;n;n;nw;s;nw;n;ne;e;s;sw;e;se;ne;nw;w;n;ne;ne;w;nw;n;;n;e;e;nw;w;n;s;sw;w;w;e;e;se;s;se;e;s;s;sw;w;s;s;e;tomoors;put herbs in pouch;tosf;herb athly;w;n;n;nw;s;nw;n;ne;e;s;sw;e;se;ne;nw;w;n;ne;ne;w;nw;n;;n;e;e;nw;w;n;s;sw;w;w;e;e;se;s;se;e;s;s;sw;w;s;s;e;tomoors;put herbs in pouch}
+#VARIABLE         {num}  {1}
+#VARIABLE         {result}  {moveon}
+#VARIABLE         {rob}  {2}
+#VARIABLE         {sa}  {1}
+
